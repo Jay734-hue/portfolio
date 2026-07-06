@@ -12,7 +12,7 @@ const CONFIG = {
     "Data Analyst"
   ],
   tagline: "Building reliable systems, troubleshooting complex IT infrastructure, and developing responsive software solutions.",
-  stats: { projects: 2, experience: 3, stacks: 4 },
+  stats: { projects: 10, experience: 1, stacks: 4 },
 
   about: {
     location: "📍 Toronto, Ontario, Canada",
