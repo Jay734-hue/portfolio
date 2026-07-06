@@ -358,7 +358,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
   // 👉 PASTE YOUR FORMSPREE URL HERE:
   const FORMSPREE_URL = "https://formspree.io/f/mzdlwzyaE";
 
-  if (FORMSPREE_URL === "https://formspree.io/f/YOUR_FORM_ID_HERE") {
+  if (FORMSPREE_URL === "https://formspree.io/f/mzdlwzyaE") {
     msg.className = "form-note error";
     msg.textContent = "❌ Please add your Formspree URL to app.js first!";
     return;
