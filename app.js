@@ -355,14 +355,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
   const msg = document.getElementById("formMsg");
   const btn = this.querySelector("button[type='submit']");
 
-  // 👉 PASTE YOUR FORMSPREE URL HERE:
+  // 👉 Your actual Formspree URL
   const FORMSPREE_URL = "https://formspree.io/f/mzdlwzyaE";
-
-  if (FORMSPREE_URL === "https://formspree.io/f/mzdlwzyaE") {
-    msg.className = "form-note error";
-    msg.textContent = "❌ Please add your Formspree URL to app.js first!";
-    return;
-  }
 
   msg.className = "form-note";
   msg.textContent = "Sending...";
@@ -381,8 +375,13 @@ document.getElementById("contactForm").addEventListener("submit", async function
       msg.textContent = "✅ Message sent! I'll get back to you soon.";
       this.reset();
     } else {
+      const data = await response.json();
       msg.className = "form-note error";
-      msg.textContent = "❌ Oops! There was a problem sending your message.";
+      if (data.errors) {
+        msg.textContent = "❌ Formspree says: " + data.errors.map(err => err.message).join(", ");
+      } else {
+        msg.textContent = "❌ Oops! There was a problem sending your message.";
+      }
     }
   } catch (error) {
     msg.className = "form-note error";
