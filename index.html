@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jay | Portfolio</title>
-  <meta name="description" content="Software Engineer Portfolio — Projects, Skills, Resume" />
+  <title>Jay Prajapati | Portfolio</title>
+  <meta name="description" content="Jay Prajapati — Full Stack Developer & MAC Candidate at WLU. Portfolio of projects, skills, and experience." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -25,7 +25,8 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="assets/Jay_CV (1).pdf" class="btn btn-sm" download>Resume ↓</a>
+      <!-- FIX: consistent resume filename across nav + mobile + about -->
+      <a href="assets/Jay_CV.pdf" class="btn btn-sm" download>Resume ↓</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -35,7 +36,7 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="assets/resume.pdf" download>Resume ↓</a>
+      <a href="assets/Jay_CV.pdf" download>Resume ↓</a>
     </div>
   </nav>
 
@@ -52,27 +53,29 @@
       <h2 class="hero-role">
         <span class="role-text" id="roleText"></span>
       </h2>
-      <p class="hero-tagline">
-        I craft <span class="highlight">elegant solutions</span> to complex problems —
-        building products that are fast, scalable, and delightful to use.
+      <!-- FIX: tagline now driven from CONFIG.tagline via JS (id added) -->
+      <p class="hero-tagline" id="heroTagline">
+        Building <span class="highlight">reliable systems</span> and
+        developing responsive software solutions that make a real impact.
       </p>
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary">View Projects</a>
         <a href="#contact" class="btn btn-ghost">Get in Touch</a>
       </div>
+      <!-- FIX: data-target values now match CONFIG.stats — updated by JS -->
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-num" data-target="10">0</span><span class="stat-num">+</span>
+          <span class="stat-num" id="statProjects" data-target="2">0</span><span class="stat-num">+</span>
           <span class="stat-label">Projects</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-num" data-target="3">0</span><span class="stat-num">+</span>
+          <span class="stat-num" id="statExp" data-target="3">0</span><span class="stat-num">+</span>
           <span class="stat-label">Years Exp.</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-num" data-target="5">0</span><span class="stat-num">+</span>
+          <span class="stat-num" id="statStacks" data-target="4">0</span><span class="stat-num">+</span>
           <span class="stat-label">Tech Stacks</span>
         </div>
       </div>
@@ -93,7 +96,7 @@
       <div class="about-grid">
         <div class="about-img-wrap">
           <div class="about-img-frame">
-            <img src="assets/profile.jpeg" alt="Jay — Profile Photo" id="profileImg" />
+            <img src="assets/profile.jpeg" alt="Jay Prajapati — Profile Photo" id="profileImg" />
             <div class="img-border"></div>
           </div>
           <div class="about-socials">
@@ -109,31 +112,26 @@
           </div>
         </div>
         <div class="about-text">
-          <p class="about-lead">
-            I'm a passionate software engineer who loves turning ideas into reality through clean, performant code.
-          </p>
-          <p>
-            <!-- UPDATE THIS PARAGRAPH WITH YOUR STORY -->
-            With a strong foundation in both frontend and backend technologies, I specialize in building full-stack applications that solve real problems. I care deeply about code quality, user experience, and shipping things that actually matter.
-          </p>
-          <p>
-            When I'm not coding, I'm exploring new technologies, contributing to open source, or leveling up my problem-solving skills.
-          </p>
+          <!-- FIX: all 3 bio paragraphs have IDs so JS can target them directly — no more index-based guessing -->
+          <p class="about-lead" id="bioPara0"></p>
+          <p id="bioPara1"></p>
+          <p id="bioPara2"></p>
           <div class="about-details">
             <div class="detail-item">
               <span class="detail-label">Location</span>
-              <span class="detail-value" id="aboutLocation">📍 Your City, Country</span>
+              <span class="detail-value" id="aboutLocation"></span>
             </div>
             <div class="detail-item">
               <span class="detail-label">Status</span>
-              <span class="detail-value status-open">🟢 Open to opportunities</span>
+              <!-- FIX: status now has its own ID so JS fills it correctly -->
+              <span class="detail-value status-open" id="aboutStatus"></span>
             </div>
             <div class="detail-item">
               <span class="detail-label">Education</span>
-              <span class="detail-value" id="aboutEdu">🎓 Your Degree, Your University</span>
+              <span class="detail-value" id="aboutEdu"></span>
             </div>
           </div>
-          <a href="assets/Jay_CV(1).pdf" class="btn btn-primary" download>Download Resume ↓</a>
+          <a href="assets/Jay_CV.pdf" class="btn btn-primary" download>Download Resume ↓</a>
         </div>
       </div>
     </div>
@@ -173,61 +171,69 @@
   </section>
 
   <!-- ─── CONTACT ─── -->
- <section class="section section-dark" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-tag">04 — Contact</p>
-        <h2 class="section-title">Let's Work Together</h2>
-        <p class="section-sub">Have a project in mind or want to chat? I'm all ears.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-card">
-            <div class="contact-icon">📧</div>
-            <div>
-              <p class="contact-label">Email</p>
-              <a href="mailto:jaynprajapati14@gmail.com" class="contact-value" id="contactEmail">jaynprajapati14@gmail.com</a>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">💼</div>
-            <div>
-              <p class="contact-label">LinkedIn</p>
-              <a href="https://linkedin.com/in/jay-prajapati14/" target="_blank" class="contact-value">linkedin.com/in/jay-prajapati14/</a>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">🐙</div>
-            <div>
-              <p class="contact-label">GitHub</p>
-              <a href="https://github.com/Jay734-hue" target="_blank" class="contact-value">github.com/Jay734-hue</a>
-            </div>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project…" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">Send Message ✉️</button>
-          <p class="form-note" id="formMsg"></p>
-        </form>
-      </div>
-    </div>
-  </section>
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">04 — Contact</p>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-sub">Have a project in mind or want to chat? I'm all ears.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <div>
+              <p class="contact-label">Email</p>
+              <a href="mailto:jaynprajapati14@gmail.com" class="contact-value" id="contactEmail">jaynprajapati14@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">💼</div>
+            <div>
+              <p class="contact-label">LinkedIn</p>
+              <a href="https://linkedin.com/in/jay-prajapati14/" target="_blank" rel="noopener" class="contact-value">linkedin.com/in/jay-prajapati14/</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">🐙</div>
+            <div>
+              <p class="contact-label">GitHub</p>
+              <a href="https://github.com/Jay734-hue" target="_blank" rel="noopener" class="contact-value">github.com/Jay734-hue</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FIX: Formspree action attr as fallback + JS fetch for AJAX submit -->
+        <form class="contact-form" id="contactForm"
+              action="https://formspree.io/f/mzdlwzya"
+              method="POST">
+          <!-- FIX: honeypot field — blocks most spam bots -->
+          <input type="text" name="_gotcha" style="display:none" />
+          <!-- FIX: Formspree redirect suppression — keeps user on your page -->
+          <input type="hidden" name="_subject" value="New message from Jay's portfolio!" />
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Send Message ✉️</button>
+          <p class="form-note" id="formMsg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <!-- ─── FOOTER ─── -->
   <footer class="footer">
     <div class="container">
-      <p>Designed & built by <strong>Jay</strong> · <span id="year"></span></p>
+      <p>Designed & built by <strong>Jay Prajapati</strong> · <span id="year"></span></p>
       <p class="footer-sub">Made with ☕ and clean code.</p>
     </div>
   </footer>
