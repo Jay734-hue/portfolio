@@ -1,107 +1,71 @@
 /* ═══════════════════════════════════════════════
-   PORTFOLIO — app.js
-   ═══════════════════════════════════════════════ */
+   PORTFOLIO — app.js
+   ═══════════════════════════════════════════════ */
 
 /* ─── CONFIG — EDIT EVERYTHING IN THIS BLOCK ─── */
 const CONFIG = {
-  name: "Jay",                          // Your full name
-  roles: [                              // Rotating role titles
-    "Full-Stack Engineer",
-    "Backend Developer",
-    "React & Node.js Dev",
-    "Problem Solver"
+  name: "Jay Prajapati",
+  roles: [
+    "Full Stack Developer",
+    "IT & Systems Specialist",
+    "MAC Candidate at WLU",
+    "Data Analyst"
   ],
-  tagline: "Building fast, scalable, delightful products.",
-  stats: { projects: 10, experience: 3, stacks: 5 },
+  tagline: "Building reliable systems, troubleshooting complex IT infrastructure, and developing responsive software solutions.",
+  stats: { projects: 2, experience: 3, stacks: 4 },
 
   about: {
-    location: "📍 Your City, Country",
-    status: "🟢 Open to opportunities",
-    education: "🎓 Your Degree · Your University",
+    location: "📍 Toronto, Ontario, Canada",
+    status: "🟢 Seeking Full-Time Full Stack Developer Roles",
+    education: "🎓 Master of Applied Computing · Wilfrid Laurier University",
     bio: [
-      "I'm a passionate software engineer who loves turning ideas into reality through clean, performant code.",
-      "With a strong foundation in both frontend and backend technologies, I specialize in building full-stack applications that solve real problems. I care deeply about code quality, user experience, and shipping things that actually matter.",
-      "When I'm not coding, I'm exploring new technologies, contributing to open source, or leveling up my problem-solving skills."
+      "I am an aspiring Full Stack Developer currently pursuing my Master's in Applied Computing at Wilfrid Laurier University, with a strong foundation in Computer Science.",
+      "With hands-on experience in both full-stack development and IT operations, I thrive on solving complex technical challenges. My background spans from developing distributed network reliability prototypes to providing top-tier academic IT support.",
+      "I am deeply detail-oriented, a continuous learner, and passionate about leveraging tools like Python, Java, Docker, and SQL to build efficient, user-centric applications."
     ]
   },
 
   contact: {
-    email: "your@email.com",
-    linkedin: "https://linkedin.com/in/yourhandle",
-    linkedinLabel: "linkedin.com/in/yourhandle",
+    email: "jaynprajapati14@gmail.com",
+    linkedin: "https://linkedin.com/in/jay-prajapati14/",
+    linkedinLabel: "linkedin.com/in/jay-prajapati14/",
     github: "https://github.com/Jay734-hue",
   },
 
   skills: [
     {
-      name: "Frontend",
-      icon: "🎨",
-      color: "",
-      tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"]
-    },
-    {
-      name: "Backend",
-      icon: "⚙️",
-      color: "cyan",
-      tags: ["Node.js", "Express", "Python", "Django", "Flask", "REST APIs", "GraphQL"]
-    },
-    {
-      name: "Database",
-      icon: "🗄️",
-      color: "green",
-      tags: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Prisma", "SQL"]
-    },
-    {
-      name: "Cloud & DevOps",
-      icon: "☁️",
-      color: "orange",
-      tags: ["AWS", "Docker", "GitHub Actions", "CI/CD", "Vercel", "Render"]
-    },
-    {
-      name: "Tools & Testing",
-      icon: "🛠️",
-      color: "pink",
-      tags: ["Git", "Jest", "Playwright", "ESLint", "Prettier", "Postman", "Figma"]
-    },
-    {
-      name: "Languages",
+      name: "Languages & DBs",
       icon: "💻",
-      color: "",
-      tags: ["JavaScript", "TypeScript", "Python", "Bash", "SQL"]
+      color: "cyan",
+      tags: ["Python", "Java", "SQL", "JavaScript"]
+    },
+    {
+      name: "Tools & DevOps",
+      icon: "🛠️",
+      color: "orange",
+      tags: ["Git", "Docker", "Agile Development", "System Design"]
+    },
+    {
+      name: "IT Operations",
+      icon: "⚙️",
+      color: "green",
+      tags: ["Hardware/Software Troubleshooting", "Computer Provisioning", "Helpdesk Support", "Inventory Management"]
+    },
+    {
+      name: "Systems & Network",
+      icon: "☁️",
+      color: "pink",
+      tags: ["Windows OS", "Microsoft 365", "SharePoint", "Network Connectivity"]
     }
   ],
 
   projects: [
     {
-      title: "Project Alpha",
-      desc: "A full-stack web app that does something impressive. Built with React and Node.js, it handles real-time data and delivers a seamless user experience.",
-      impact: "⚡ 40% faster load time · 1,000+ active users",
-      stack: ["React", "Node.js", "PostgreSQL", "Docker"],
-      category: "fullstack",
-      featured: true,
-      emoji: "🚀",
-      thumb: "",            // path: "assets/projects/alpha.png"
-      github: "https://github.com/Jay734-hue",
-      demo: ""              // "https://your-demo.com"
-    },
-    {
-      title: "Project Beta",
-      desc: "A RESTful API service powering a mobile application. Designed for scale with rate limiting, caching, and comprehensive test coverage.",
-      impact: "📦 Handles 10K req/day · 99.9% uptime",
-      stack: ["Python", "Flask", "Redis", "AWS Lambda"],
+      title: "System Analytics & Dashboarding",
+      desc: "Researched and analyzed large datasets to resolve data inconsistencies. Created detailed reporting dashboards to communicate technical trends to stakeholders.",
+      impact: "📊 Generated reliable performance insights",
+      stack: ["Python", "SQL", "Data Analysis"],
       category: "backend",
-      featured: false,
-      emoji: "⚙️",
-      thumb: "",
-      github: "https://github.com/Jay734-hue",
-      demo: ""
-    },
-    {
-      title: "Project Gamma",
-      desc: "An interactive dashboard with real-time data visualization. Clean UI, dark mode, and smooth animations built entirely in React with TypeScript.",
-      impact: "📊 Visualizes 50K+ data points in real-time",
-      stack: ["React", "TypeScript", "D3.js", "WebSocket"],
-      category: "frontend",
       featured: true,
       emoji: "📊",
       thumb: "",
@@ -109,37 +73,13 @@ const CONFIG = {
       demo: ""
     },
     {
-      title: "Project Delta",
-      desc: "A machine learning pipeline that processes and classifies data with high accuracy. Includes model training, evaluation, and a simple inference API.",
-      impact: "🤖 93% accuracy · Processes 5K samples/sec",
-      stack: ["Python", "scikit-learn", "FastAPI", "Docker"],
-      category: "ml",
-      featured: false,
-      emoji: "🤖",
-      thumb: "",
-      github: "https://github.com/Jay734-hue",
-      demo: ""
-    },
-    {
-      title: "Project Epsilon",
-      desc: "A full-stack e-commerce platform with cart, checkout, payment integration, and an admin dashboard for inventory management.",
-      impact: "🛒 End-to-end checkout · Stripe integrated",
-      stack: ["Next.js", "Prisma", "PostgreSQL", "Stripe"],
-      category: "fullstack",
-      featured: false,
-      emoji: "🛒",
-      thumb: "",
-      github: "https://github.com/Jay734-hue",
-      demo: ""
-    },
-    {
-      title: "Project Zeta",
-      desc: "A CLI tool that automates repetitive development tasks, generating boilerplate, configs, and documentation from simple templates.",
-      impact: "⏱️ Saves 2+ hrs/week per developer",
-      stack: ["Node.js", "Commander.js", "Bash", "npm"],
+      title: "Network Reliability Prototype",
+      desc: "Built a distributed systems prototype to evaluate fault tolerance and system reliability under simulated network connectivity failures.",
+      impact: "⚡ Optimized adaptive timeout strategies",
+      stack: ["Go", "Docker", "System Design"],
       category: "backend",
-      featured: false,
-      emoji: "⚡",
+      featured: true,
+      emoji: "🔌",
       thumb: "",
       github: "https://github.com/Jay734-hue",
       demo: ""
