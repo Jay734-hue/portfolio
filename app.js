@@ -345,21 +345,53 @@ renderProjects("all");
 
 
 /* ══════════════════════════════
-   CONTACT
+   CONTACT
 ══════════════════════════════ */
 document.getElementById("contactEmail").textContent = CONFIG.contact.email;
 document.getElementById("contactEmail").href = `mailto:${CONFIG.contact.email}`;
 
-document.getElementById("contactForm").addEventListener("submit", function(e) {
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
   e.preventDefault();
   const msg = document.getElementById("formMsg");
-  msg.className = "form-note success";
-  msg.textContent = "✅ Message sent! I'll get back to you soon.";
-  this.reset();
-  setTimeout(() => { msg.textContent = ""; }, 5000);
-  // TIP: Replace this with a real form handler — Formspree, EmailJS, or your own API
-});
+  const btn = this.querySelector("button[type='submit']");
 
+  // 👉 PASTE YOUR FORMSPREE URL HERE:
+  const FORMSPREE_URL = "https://formspree.io/f/mzdlwzyaE";
+
+  if (FORMSPREE_URL === "https://formspree.io/f/YOUR_FORM_ID_HERE") {
+    msg.className = "form-note error";
+    msg.textContent = "❌ Please add your Formspree URL to app.js first!";
+    return;
+  }
+
+  msg.className = "form-note";
+  msg.textContent = "Sending...";
+  btn.disabled = true;
+
+  try {
+    const formData = new FormData(this);
+    const response = await fetch(FORMSPREE_URL, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      msg.className = "form-note success";
+      msg.textContent = "✅ Message sent! I'll get back to you soon.";
+      this.reset();
+    } else {
+      msg.className = "form-note error";
+      msg.textContent = "❌ Oops! There was a problem sending your message.";
+    }
+  } catch (error) {
+    msg.className = "form-note error";
+    msg.textContent = "❌ Network error. Please email me directly instead.";
+  }
+
+  btn.disabled = false;
+  setTimeout(() => { if(msg.textContent.includes("✅")) msg.textContent = ""; }, 5000);
+});
 
 /* ══════════════════════════════
    INTERSECTION OBSERVER (fade-up)
