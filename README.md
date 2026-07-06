@@ -42,8 +42,8 @@ No HTML editing needed for content changes.
 
 | File | Description |
 |------|-------------|
-| `assets/profile.jpeg` | Your headshot — square crop, minimum 400×400px |
-| `assets/Jay_CV.pdf` | Your resume — all three Resume buttons link to this |
+| `assets/profile.jpeg` |   square crop, minimum 400×400px |
+| `assets/Jay_CV.pdf` |   all three Resume buttons link to this |
 | `assets/projects/*.png` | Optional project screenshots — 16:9 ratio works best |
 
 ---
