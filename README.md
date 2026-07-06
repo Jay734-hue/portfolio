@@ -1,58 +1,107 @@
-# Jay's Portfolio
+# Jay Prajapati — Portfolio
 
-A modern, dark-themed personal portfolio website.
+A modern, dark-themed personal portfolio website showcasing my projects, skills, and experience.
 
-## 🚀 Live on GitHub Pages
-Visit: https://Jay734-hue.github.io/portfolio
+**Live:** https://Jay734-hue.github.io/portfolio
 
-## 📁 Structure
+---
+
+##  Project Structure
+
 ```
 portfolio/
-├── index.html          ← Main page
-├── style.css           ← All styles
-├── app.js              ← All logic + CONFIG block
+├── index.html                   ← Main page
+├── style.css                    ← All styles & theming
+├── app.js                       ← Logic, animations & CONFIG block
 ├── assets/
-│   ├── profile.jpg     ← Your photo (drop it here)
-│   └── resume.pdf      ← Your resume (drop it here)
-│   └── projects/       ← Project screenshots
+│   ├── profile.jpeg             ← Profile photo
+│   ├── Jay_CV.pdf               ← Resume (downloaded via Resume button)
+│   └── projects/                ← Project screenshots (16:9)
 └── .github/
     └── workflows/
-        └── deploy.yml  ← Auto-deploy to GitHub Pages
+        └── deploy.yml           ← Auto-deploy to GitHub Pages on push
 ```
 
-## ✏️ How to customize
-Open `app.js` and edit the `CONFIG` block at the top:
-- name, roles, bio, location, education
-- skills categories and tags
-- projects (title, desc, stack, links, screenshots)
-- contact info
+---
 
-## 📸 Adding your assets
+##  Updating Content
+
+All personal content lives in the `CONFIG` block at the top of `app.js` — edit only that section:
+
+- **name, roles, tagline** — hero section
+- **bio, location, education, status** — about section
+- **skills** — categories, icons, tags
+- **projects** — title, description, impact, stack, GitHub & demo links
+- **contact** — email, LinkedIn, GitHub
+
+No HTML editing needed for content changes.
+
+---
+
+##  Adding Assets
+
+| File | Description |
+|------|-------------|
+| `assets/profile.jpeg` | Your headshot — square crop, minimum 400×400px |
+| `assets/Jay_CV.pdf` | Your resume — all three Resume buttons link to this |
+| `assets/projects/*.png` | Optional project screenshots — 16:9 ratio works best |
+
+---
+
+## 🚀 Deploying to GitHub Pages
+
+Free hosting, auto-deploys on every push.
+
+```bash
+# 1. Create a repo named "portfolio" on GitHub, then:
+git init
+git add .
+git commit -m "feat: initial portfolio"
+git remote add origin https://github.com/Jay734-hue/portfolio.git
+git push -u origin main
 ```
-assets/
-  profile.jpg       → your headshot (square, min 400×400)
-  resume.pdf        → your resume
-  projects/
-    project1.png    → 16:9 screenshots for each project
-```
 
-## 🌐 Deploying to GitHub Pages (5 min)
-1. Create a repo named: `portfolio` on GitHub
-2. Push all these files to the `main` branch
-3. Go to Settings → Pages → Source: GitHub Actions
-4. Push again — it auto-deploys!
-5. Your site is live at: https://Jay734-hue.github.io/portfolio
+Then in your repo:
 
-## 📬 Contact form
-The form shows a success message by default.
-To make it actually send emails, connect it to Formspree (free):
-1. Sign up at formspree.io
-2. Create a form → get your endpoint URL
-3. In index.html, change the form action to your Formspree URL
-4. Change method to POST and add `name="email"` etc.
+**Settings → Pages → Source → GitHub Actions**
 
-## 🎨 Customizing colors
-Edit the CSS variables at the top of `style.css` under `:root { }`
-- `--accent` / `--accent2` → main purple tones
-- `--bg` / `--bg2` → background shades
-- `--cyan`, `--green`, `--orange`, `--pink` → tag colors
+Your site goes live at `https://Jay734-hue.github.io/portfolio` within a minute. Every subsequent `git push` to `main` triggers an automatic redeploy.
+
+---
+
+## 📬 Contact Form (Formspree)
+
+The form submits via [Formspree](https://formspree.io) and delivers messages straight to your Gmail.
+
+1. Sign up at formspree.io and create a form
+2. Copy your form endpoint ID
+3. In `app.js`, update `CONFIG.formspreeUrl` with your endpoint:
+   ```js
+   formspreeUrl: "https://formspree.io/f/your-id-here",
+   ```
+4. Test on a live URL — Formspree does not work from `file://` locally
+
+> **Note:** New Formspree forms need one confirmed submission to activate delivery.
+
+---
+
+##  Theming & Colors
+
+All design tokens are CSS variables at the top of `style.css` under `:root {}`:
+
+| Variable | Purpose |
+|----------|---------|
+| `--accent` / `--accent2` | Primary purple tones |
+| `--bg` / `--bg2` / `--bg3` | Background shades |
+| `--cyan`, `--green`, `--orange`, `--pink` | Skill tag accent colors |
+| `--font` | Body font (Inter) |
+| `--mono` | Code/tag font (JetBrains Mono) |
+
+---
+
+##  Tech
+
+- Vanilla HTML, CSS, JavaScript — zero dependencies, zero frameworks
+- Deployed via GitHub Actions → GitHub Pages
+- Contact form via Formspree
+
